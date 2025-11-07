@@ -1,0 +1,125 @@
+\usepackage{amsmath,amssymb,amsfonts,amsthm,optidef}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{xparse}
+\usepackage{import}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
+\makeatletter
+\@ifpackageloaded{unicode-math}{%
+	\newcommand{\mymathbold}{\symbf}%
+}{%
+	\usepackage{bm}%
+	\newcommand{\mymathbold}{\bm}%
+}
+\makeatother
+
+\subimport{defs}{symbols.tex}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+
+
+\DeclareMathOperator*{\union}{\bigcup}
+\DeclareMathOperator*{\intersect}{\bigcap}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\renewcommand{\P}{\operatorname{\mathbb{P}}}
+
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\trace}{\operatorname{trace}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\argmin}{\operatornamewithlimits{arg~min}}
+\newcommand{\argmax}{\operatornamewithlimits{arg~max}}
+\newcommand{\diag}{\operatorname{diag}}
+
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\braces}{\{}{\}}
+\DeclarePairedDelimiter{\parens}{(}{)}
+\DeclarePairedDelimiter{\brackets}{[}{]}
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1,#2}
+
+\DeclarePairedDelimiterXPP{\normsub}[2]{}{\lVert}{\rVert}{_{#2}}{#1}
+\DeclarePairedDelimiterXPP{\ipsub}[3]{}{\langle}{\rangle}{_{#3}}{#1,#2}
+
+%Create custom norm/inner product commands with something like
+%\usepackage{suffix}
+%...
+%\newcommand{\iptwo}[2]{\ipsub{#1}{#2}{2}}
+%\WithSuffix\newcommand{\iptwo*}[2]{\ipsub*{#1}{#2}{2}}
+
+\DeclarePairedDelimiterXPP{\ipHS}[2]{}{\langle}{\rangle}{_{\mathrm{HS}}}{#1, #2}
+\DeclarePairedDelimiterXPP{\normHS}[1]{}{\lVert}{\rVert}{_{\mathrm{HS}}}{#1}
+
+\DeclarePairedDelimiterXPP{\ipF}[2]{}{\langle}{\rangle}{_{\mathrm{F}}}{#1, #2}
+\DeclarePairedDelimiterXPP{\normF}[1]{}{\lVert}{\rVert}{_{\mathrm{F}}}{#1}
+
+\DeclarePairedDelimiterXPP{\normt}[1]{}{\lVert}{\rVert}{_{2}}{#1}
+\DeclarePairedDelimiterXPP{\normo}[1]{}{\lVert}{\rVert}{_{\mathrm{1}}}{#1}
+
+
+\DeclarePairedDelimiterXPP{\dkl}[2]{\operatorname{D_{KL}}}{(}{)}{}{#1 \: \delimsize\Vert \: #2}
+
+\DeclarePairedDelimiterXPP{\restr}[2]{}{{}}{\vert}{_{#2}}{#1}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+%vector/matrix notation specific to problem setting of interest
+\newcommand{\x}{\bm{x}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\xtilde}{\bm{\widetilde{x}}}
+\newcommand{\ytilde}{\bm{\widetilde{y}}}
+\newcommand{\ztilde}{\bm{\widetilde{z}}}
+\newcommand{\z}{\bm{z}}
+\newcommand{\uv}{\bm{u}}
+\newcommand{\w}{\bm{w}}
+% \newcommand{\ehat}{\hat{\bm{e}}
+\newcommand{\Sigmab}{\bm{\Sigma}}
+\newcommand{\Ttilde}{\widetilde{\bm{T}}}
+\newcommand{\Ftilde}{\widetilde{\bm{F}}}
+\newcommand{\Vtilde}{\widetilde{\bm{V}}}
+\newcommand{\blDeltatilde}{\widetilde{\blDelta}}
+\newcommand{\sigmaabs}{\sigma_{\mathsf{abs}}}
+
+\newcommand{\He}{\text{He}}
+
+
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\divergence}{\operatorname{div}}
+\newcommand{\indicator}[1]{\mathbf{1}_{\{ #1 \}}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\nul}{\operatorname{null}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\normaldist}{\operatorname{\mathcal{N}}}
+\newcommand{\poissondist}{\operatorname{Poisson}}
+\newcommand{\multinomialdist}{\operatorname{Multinomial}}
+\newcommand{\given}{\:\vert\:}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\simiid}{\overset{\mathclap{\text{i.i.d.}}}{\sim}}
+\newcommand{\conv}{\operatorname{conv}}
+
+\newcommand{\todo}[1]{\textcolor{red}{{\textbf{[TODO: #1]}}}}
+\newcommand{\vm}[1]{\textcolor{blue}{{\textbf{[VM: #1]}}}}
+
+
+\providecommand{\note}[1]{\textbf{[Note: #1]}} % Avoid error with 
